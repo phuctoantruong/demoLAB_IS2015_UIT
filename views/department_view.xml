@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<openerp>
+  <data>
+
+    <act_window id="action_department_management"
+      name="Department Management"
+      res_model="department.management"
+      view_mode="tree,form" />
+      
+    <menuitem id="menu_department_management"
+      name="Department"
+      parent="menu_employer_management_top"
+      sequence="20"
+      action="action_department_management" />      	
+    
+         
+   <record id="view_tree_department_management" model="ir.ui.view">   
+      <field name="name">Department Management</field>
+      <field name="model">department.management</field>
+      <field name="arch" type="xml">        
+         <tree>
+          <field name="name"/>     
+        </tree>
+      </field>
+    </record>    	
+    
+    <record id="view_get_salary_tree" model="ir.ui.view">
+	    <field name="name">get.salary.tree</field>
+	    <field name="model">get.salary</field>
+	    <field name="arch" type="xml">
+            <tree string="Get Salary" editable='bottom' >
+                <field name="name"/>
+                <field name="salary"/>
+                <field name="employer_id"/>
+            </tree>
+        </field>
+  	  </record>
+    
+    <record id="view_form_department_management" model="ir.ui.view">
+      <field name="name">Department Management</field>
+      <field name="model">department.management</field>
+      <field name="arch" type="xml">
+        <form>
+        	<header>
+        		<button name="filter_salary" string="Filter" type="object" class="oe_highlight"/>
+        	</header>
+            <group name="group_top">
+              <field name="name"/>
+              <field name="getSalary" />
+            </group>
+            <notebook>
+         		<page string="Get Salary Employers">
+     				<field name="salary_ids"/> 
+         		</page>
+         	</notebook>
+        </form>
+
+      </field>
+    </record>
+  </data>
+</openerp>
+

@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<openerp>
+  <data>
+
+    <act_window id="action_employer_management"
+      name="Employer Management"
+      res_model="employer.management"
+      view_mode="tree,form" />
+    
+	<menuitem id="menu_employer_management_top"
+      name="Employer Management" sequence="40"/>
+      
+    <menuitem id="menu_employer_management"
+      name="Employer"
+      parent="menu_employer_management_top"
+      sequence="10"
+      action="action_employer_management" />  
+      
+   <record id="view_tree_employer_management" model="ir.ui.view">   
+      <field name="name">Employer Management</field>
+      <field name="model">employer.management</field>
+      <field name="arch" type="xml">        
+         <tree>
+          <field name="name"/>
+          <field name="birthday"/>   
+          <field name="address"/>   
+          <field name="email"/>
+          <field name="phone_number"/>   
+          <field name="department_id"/> 
+        </tree>
+      </field>
+    </record>    	
+    
+    <record id="view_form_employer_management" model="ir.ui.view">
+      <field name="name">Employer Management</field>
+      <field name="model">employer.management</field>
+      <field name="arch" type="xml">
+        <form>
+          <group name="group_left">
+			<field name="name"/>
+			<field name="birthday"/>   
+			<field name="address"/>                
+			<field name="salary"/>				
+          </group>
+          <group name="group_right">
+			<field name="email"/>
+          	<field name="phone_number"/>   
+          	<field name="department_id"/>              
+          </group>               
+        </form>
+      </field>
+    </record>
+    
+  </data>
+</openerp>
+
